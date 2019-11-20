@@ -2,7 +2,7 @@ data aws_vpc "this" {
   default = false
 
   tags = {
-    Name      = "devops - main"
+    Name = "devops - main"
   }
 }
 
@@ -10,7 +10,7 @@ data "aws_subnet_ids" "public" {
   vpc_id = data.aws_vpc.this.id
 
   tags = {
-    Name      = "*public*"
+    Name = "*public*"
   }
 }
 
@@ -18,15 +18,15 @@ data "aws_subnet_ids" "private" {
   vpc_id = data.aws_vpc.this.id
 
   tags = {
-    Name      = "*private*"
+    Name = "*private*"
   }
 }
 
-data "aws_ami" "eks_worker_1_14" {
+data "aws_ami" "eks_worker_1_13" {
   filter {
     name = "name"
     values = [
-    "amazon-eks-node-1.14-v20190906"]
+    "amazon-eks-node-1.13-v20191119"]
   }
 
   most_recent = true

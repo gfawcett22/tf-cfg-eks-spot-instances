@@ -1,0 +1,13 @@
+rbac:
+  create: true
+
+cloudProvider: aws
+awsRegion: us-east-1
+
+autoDiscovery:
+  clusterName: gfawcett-test
+  enabled: true
+  tags:
+    - k8s.io/cluster-autoscaler/enabled
+    - k8s.io/cluster-autoscaler/{{ .Values.autoDiscovery.clusterName }}
+    - node/type/normal
